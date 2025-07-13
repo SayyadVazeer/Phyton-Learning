@@ -10,7 +10,9 @@ def set_alarm(alarm_time):
     while is_running:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
         print(current_time)
-
+        # if current_time > alarm_time:
+        #     print("Alarm to be set for future ")
+        #     break
         if current_time == alarm_time:
             print("WAKE UP ! 😒")
 
@@ -19,6 +21,10 @@ def set_alarm(alarm_time):
             pygame.mixer.music.play()
 
             while pygame.mixer.music.get_busy():
+                cmd = input("Type 'Stop' if you are awake now: ")
+                if cmd != True :
+                    pygame.mixer.music.stop()
+                    break
                 time.sleep(1)
             is_running = False
         time.sleep(1)
