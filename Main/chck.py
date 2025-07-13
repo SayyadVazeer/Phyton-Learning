@@ -1,14 +1,6 @@
-from abc import ABC , abstractmethod
+import sys
+import os
+import contextlib
 
-class Shape(ABC):
-
-    @abstractmethod
-    def area(self):
-        pass
-
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-        print(f"{self.radius}")
-
-Circle(3)
+with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f):
+    import pygame
