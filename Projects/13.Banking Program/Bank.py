@@ -17,11 +17,12 @@ def withdraw(balance):
 
     if amount > balance:
         print("Balance insuffent in your account")
-        withdraw(balance)
-    elif amount < 0:
+        return withdraw(balance)
+        
+    elif amount <= 0:
         print(" Please enter an valid amount")
         print("*********************")
-        withdraw(balance)
+        return withdraw(balance)
     else:
         print(f"Please collect ${amount}")
         print("*********************")
